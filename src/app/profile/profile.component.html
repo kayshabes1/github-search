@@ -1,19 +1,33 @@
  <div *ngIf="profile">
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="container container-default">
+        <div class="container-heading">
             {{profile.name}} <small>{{profile.login}}</small>,
             <span *ngIf="profile.company">Works at {{profile.company}}</span> 
             {{profile.location}}
         </div>
-        <div class="panel-body">
+        <div class="container">
             <div class="row">
                 <div class="col-m-3">
                     <img src="{{profile.avatar_url}}" class="img-circle img-responsive">
                 </div>
-                <div class="col-m-5">
+                <div class="col-sm-5">
                     <ul class="list-group">
                         <li class="list-group-item" *ngIf="profile.bio" >{{profile.bio}}</li>
+                        <li class="list-group-item" *ngIf="profile.hireable" >Available for Hire</li>
+                        <li class="list-group-item" *ngIf="profile.blog" ><a href="{{profile.blog}}" target="_blank">{{profile.blog}}</a></li>
+                        <li class="list-group-item" *ngIf="profile.email"><a href="emailto:{{profile.email}}">{{profile.email}}</a></li>
                     </ul>
+                </div>
+                <div class="col-m-4 pt-3">
+                    <div>
+                        <p>
+                            <button class="btn btn-warning m-1">{{profile.followers}} Followers</button>
+                            <button class="btn btn-primary m-1">Following {{profile.following}}</button>
+                            <button class="btn btn-success m-1">{{profile.public_gists}} Public Gists</button>
+                            <button class="btn btn-info m-1">{{profile.public_repos}} Public Repos</button>
+                        </p>
+                        <p><a href="{{profile.html_url}}" class="btn btn-success btn-sm">View Profile on GitHub</a></p>
+                    </div>
                 </div>
             </div>
         </div>
