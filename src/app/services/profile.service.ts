@@ -26,4 +26,7 @@ export class ProfileService {
     this.clientid + "&client_secret=" + this.clientsecret)
   }
   
+  updateProfile(username:string){
+    this.username = username;
+  }
 }
